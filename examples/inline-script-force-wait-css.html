@@ -4,18 +4,18 @@
     <title>Example how js can delay or even block DOMContentLoaded</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width"/>
-    <link rel="stylesheet" href="./huge-css-file.css"/>
-    <link rel="stylesheet" href="./huge-css-file.css?cache=1"/>
-    <link rel="stylesheet" href="./huge-css-file.css?cache=2"/>
+    <link rel="stylesheet" href="utils/huge-css-file.css"/>
+    <link rel="stylesheet" href="utils/huge-css-file.css?cache=1"/>
+    <link rel="stylesheet" href="utils/huge-css-file.css?cache=2"/>
 </head>
 <body>
 <h1>This is how inline script can cause browser wait for css to load before DOMContentLoaded</h1>
 <h2>With inline script</h2>
 <p>* pay attention on DCL event order/time</p>
-<img src="./wait-css.png" alt="" width="700" height="359">
+<img src="utils/wait-css.png" alt="" width="700" height="359">
 <h2>Without inline script</h2>
 <p>* pay attention on DCL event order/time</p>
-<img src="./no-inline-script.png" alt="" width="700" height="258">
+<img src="utils/no-inline-script.png" alt="" width="700" height="258">
 <!-- TOGGLE THIS PIECE OF CODE TO CHECK -->
 <!--<script id="sync-script">console.log('test')</script>-->
 </body>

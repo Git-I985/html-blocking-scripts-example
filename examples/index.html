@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example how js can delay or even block DOMContentLoaded</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script>
+      let scripts;
+      const SCRIPTS_TO_ADD = 50;
+      const EACH_SCRIPT_ITERS_COUNT = 500_000_000;
+    </script>
+    <!--BLOCKING FCP -->
+    <script class="repeatedScript">
+      scripts = document.querySelectorAll('script.repeatedScript');
+      if (scripts.length < SCRIPTS_TO_ADD) {
+        for (let i = 0; i < EACH_SCRIPT_ITERS_COUNT; i++) {}
+        const script = document.createElement('script');
+        script.innerHTML = scripts[0].innerHTML;
+        document.head.appendChild(script);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Example how js can delay or even block DOMContentLoaded</h1>
+    <script>
+      document.addEventListener('DOMContentLoaded', (e) => {
+        if (e.timeStamp > 1000) {
+          console.log(
+            'DOMContentLoaded',
+            (e.timeStamp / 1000).toFixed(4) + 's'
+          );
+        } else {
+          console.log('DOMContentLoaded', e.timeStamp.toFixed(4) + 'ms');
+        }
+      });
+    </script>
+  </body>
+</html>
